@@ -134,9 +134,10 @@ def create_component(params, comp='Slider'):
 
 
 def create_multimodal_input(upload_image_disabled=False, upload_video_disabled=False):
+   # Convert booleans to strings for properties that might be causing issues
    return mgr.MultimodalInput(
-       upload_image_button_props={'label': 'Upload Image', 'disabled': upload_image_disabled, 'file_count': 'multiple'},
-       upload_video_button_props={'label': 'Upload Video', 'disabled': upload_video_disabled, 'file_count': 'single'},
+       upload_image_button_props={'label': 'Upload Image', 'disabled': str(upload_image_disabled), 'file_count': 'multiple'},
+       upload_video_button_props={'label': 'Upload Video', 'disabled': str(upload_video_disabled), 'file_count': 'single'},
        submit_button_props={'label': 'Submit'}
    )
 
